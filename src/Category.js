@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import {View ,StyleSheet,Text,Image,TouchableOpacity} from 'react-native'
+import {View ,StyleSheet,Text,Image,TouchableOpacity,Dimensions} from 'react-native';
+const { width, height } = Dimensions.get('window');
+
+const CARD_HEIGHT = height / 3;
+const CARD_WIDTH = CARD_HEIGHT + 40;
 
 class Category extends Component {
     render() { 
@@ -16,10 +20,12 @@ class Category extends Component {
            <Image source={this.props.imgUrl} style={styles.img}/>
                     </View>  
                 </View>
+               
                <View style={styles.viewTochableOpacity}>
+              
                    <TouchableOpacity style={styles.tochableOpacity}>
                        <Text>Click</Text>
-                   </TouchableOpacity >
+                   </TouchableOpacity>
                    <TouchableOpacity style={styles.tochableOpacity}>
                        <Text>Click</Text>
                    </TouchableOpacity>
@@ -31,13 +37,16 @@ class Category extends Component {
 
 const styles=StyleSheet.create({
 container:{
-    height: 150,
-    width:250,
+    height: CARD_HEIGHT,
+    width:CARD_WIDTH,
     margin:5,
     borderWidth:0.5,
     borderColor:'#dddddd',
     backgroundColor:'white',
-    flexDirection:'column'
+    flexDirection:'column',
+    overflow: "hidden",
+    shadowOpacity: 0.3,
+    shadowOffset: { x: 2, y: -2 },
 },
 specifications:{
    flex:2,
@@ -75,10 +84,11 @@ img:{
     height: '100%'
 },
 viewTochableOpacity :{
-    alignItems:'center',
-    justifyContent:'center',
+    flex:2,
+    width:CARD_WIDTH,
+    height:30,
     flexDirection:'row',
-    marginBottom:5
+    margin:5
 },
 tochableOpacity:{
     width:110,
