@@ -84,7 +84,7 @@ img:{
     height: '100%'
 },
 viewTochableOpacity :{
-    flex:2,
+    flex:2.3,
     width:CARD_WIDTH,
     height:30,
     flexDirection:'row',
